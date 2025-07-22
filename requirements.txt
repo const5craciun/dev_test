@@ -1,0 +1,10 @@
+jupyterlab
+numpy
+pandas
+random
+nltk
+scikit-learn
+matplotlib
+seaborn
+pyldavis
+kaleido
