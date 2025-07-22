@@ -1,0 +1,9 @@
+jupyterlab
+numpy
+pandas
+nltk
+scikit-learn
+matplotlib
+seaborn
+pyldavis
+kaleido

@@ -1,0 +1,33 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: circleci/python:3.10
+    working_directory: ~/repo
+
+jobs:
+  test:
+    executor: python-executor
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install jupyterlab numpy pandas nltk scikit-learn matplotlib seaborn pyldavis kaleido
+
+      - run:
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            pytest tests/
+
+workflows:
+  version: 2
+  test_on_pr:
+    jobs:
+      - test
